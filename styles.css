@@ -1,0 +1,562 @@
+/* ============================================
+   GLOBAL STYLES & CSS VARIABLES
+   ============================================ */
+
+:root {
+    /* Color Palette */
+    --primary-bg: #0a0e27;
+    --secondary-bg: #1a1f3a;
+    --tertiary-bg: #252d47;
+    --accent-color: #00d4ff;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --border-color: #333344;
+    --hover-bg: #2d3454;
+    --danger-color: #ff3d3d;
+    --success-color: #4caf50;
+
+    /* Typography */
+    --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-size-base: 16px;
+    --font-size-sm: 14px;
+    --font-size-lg: 20px;
+    --font-size-xl: 28px;
+    --font-size-xxl: 36px;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 48px;
+
+    /* Border & Shadows */
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --box-shadow-hover: 0 8px 12px rgba(0, 0, 0, 0.4);
+    --transition: all 0.3s ease;
+}
+
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: #00b8d4;
+}
+
+button, .btn {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+/* ============================================
+   NAVIGATION BAR
+   ============================================ */
+
+.navbar {
+    background-color: var(--secondary-bg);
+    padding: var(--spacing-lg) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-xl);
+}
+
+.nav-links a {
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--tertiary-bg) 100%);
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: var(--font-size-xxl);
+    margin-bottom: var(--spacing-sm);
+    background: linear-gradient(135deg, var(--accent-color) 0%, #00b8d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: var(--box-shadow);
+}
+
+.cta-button:hover {
+    background-color: #00b8d4;
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-hover);
+    color: var(--primary-bg);
+}
+
+/* ============================================
+   LOADING SPINNER
+   ============================================ */
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    gap: var(--spacing-lg);
+}
+
+.loading p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-lg);
+}
+
+.spinner {
+    border: 3px solid var(--tertiary-bg);
+    border-top: 3px solid var(--accent-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================
+   ERROR MESSAGE
+   ============================================ */
+
+.error-message {
+    background-color: rgba(255, 61, 61, 0.1);
+    border: 1px solid var(--danger-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg);
+    text-align: center;
+    color: #ff6b6b;
+}
+
+.error-message p {
+    margin: 0;
+    font-size: var(--font-size-lg);
+}
+
+/* ============================================
+   REPOSITORIES SECTION
+   ============================================ */
+
+.repositories {
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    background-color: var(--primary-bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.repositories h2 {
+    font-size: var(--font-size-xxl);
+    margin-bottom: var(--spacing-xxl);
+    text-align: center;
+    color: var(--accent-color);
+    letter-spacing: -0.5px;
+}
+
+/* ============================================
+   REPOSITORY GRID
+   ============================================ */
+
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+/* ============================================
+   REPOSITORY CARD
+   ============================================ */
+
+.repo-card {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: var(--box-shadow);
+}
+
+.repo-card:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--accent-color);
+    transform: translateY(-4px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.repo-header {
+    margin-bottom: var(--spacing-md);
+}
+
+.repo-name {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: var(--spacing-sm);
+    word-break: break-word;
+    transition: var(--transition);
+}
+
+.repo-card:hover .repo-name {
+    color: #00b8d4;
+}
+
+.repo-description {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+    min-height: 40px;
+}
+
+.repo-description:empty::before {
+    content: "No description provided";
+    color: var(--text-secondary);
+    font-style: italic;
+    opacity: 0.7;
+}
+
+.repo-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+    gap: var(--spacing-sm);
+}
+
+.repo-language {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--tertiary-bg);
+    border-radius: 4px;
+    font-size: var(--font-size-sm);
+    color: var(--accent-color);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.repo-language:empty {
+    display: none;
+}
+
+.repo-language::before {
+    content: "●";
+    margin-right: 4px;
+}
+
+.repo-link {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    border-radius: 4px;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.repo-link:hover {
+    background-color: #00b8d4;
+    color: var(--primary-bg);
+    transform: translateX(2px);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    background-color: var(--secondary-bg);
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    text-align: center;
+    margin-top: var(--spacing-xxl);
+}
+
+.footer-content p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    margin: var(--spacing-sm) 0;
+}
+
+.heart {
+    color: var(--danger-color);
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+    :root {
+        --font-size-base: 15px;
+        --font-size-xxl: 28px;
+        --spacing-xxl: 32px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .nav-links {
+        gap: var(--spacing-lg);
+    }
+
+    .hero {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .hero h1 {
+        font-size: var(--font-size-xl);
+    }
+
+    .hero p {
+        font-size: var(--font-size-base);
+    }
+
+    .repositories {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .repositories h2 {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .repo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: var(--spacing-lg);
+    }
+
+    .repo-footer {
+        flex-wrap: wrap;
+    }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+    :root {
+        --font-size-lg: 18px;
+        --font-size-xl: 22px;
+        --spacing-lg: 16px;
+        --spacing-xl: 20px;
+    }
+
+    .navbar {
+        padding: var(--spacing-md) 0;
+    }
+
+    .nav-container {
+        padding: 0 var(--spacing-md);
+    }
+
+    .nav-links {
+        gap: var(--spacing-md);
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .hero h1 {
+        font-size: var(--font-size-lg);
+    }
+
+    .hero p {
+        font-size: var(--font-size-sm);
+    }
+
+    .cta-button {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 12px;
+    }
+
+    .repositories {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .repositories h2 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .repo-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .repo-card {
+        padding: var(--spacing-md);
+    }
+
+    .repo-name {
+        font-size: var(--font-size-base);
+    }
+
+    .repo-description {
+        font-size: var(--font-size-sm);
+    }
+
+    .footer-content p {
+        font-size: 12px;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY & UTILITY CLASSES
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+    .repo-card {
+        border-width: 2px;
+    }
+
+    .navbar {
+        border-bottom-width: 2px;
+    }
+}
+
+/* Dark mode (already in dark theme, but explicit support) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-bg: #0a0e27;
+        --secondary-bg: #1a1f3a;
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varshith - GitHub Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#home">Varshith</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="https://github.com/varshith3555" target="_blank">GitHub</a></li>
+                <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                <li><a href="mailto:your-email@example.com">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>GitHub Portfolio</h1>
+            <p>Showcasing my projects and contributions</p>
+            <a href="#repositories" class="cta-button">View My Work</a>
+        </div>
+    </section>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Loading repositories...</p>
+    </div>
+
+    <!-- Error Message -->
+    <div id="error-message" class="error-message" style="display: none;">
+        <p id="error-text"></p>
+    </div>
+
+    <!-- Repositories Section -->
+    <section class="repositories" id="repositories">
+        <div class="container">
+            <h2>My Repositories</h2>
+            <div class="repo-grid" id="repo-grid">
+                <!-- Repository cards will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Varshith. All rights reserved.</p>
+            <p>Built with <span class="heart">❤</span> using HTML, CSS & JavaScript</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
