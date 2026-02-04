@@ -108,20 +108,14 @@ function createRepositoryCard(repo) {
     const footer = document.createElement('div');
     footer.className = 'repo-footer';
 
-    // Create language badge
-    const language = document.createElement('span');
-    language.className = 'repo-language';
-    language.textContent = repo.language || '';
-
     // Create link to repository
     const link = document.createElement('a');
     link.className = 'repo-link';
     link.href = repo.html_url;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
-    link.textContent = 'View';
+    link.textContent = 'Explore';
 
-    footer.appendChild(language);
     footer.appendChild(link);
 
     // Assemble card
